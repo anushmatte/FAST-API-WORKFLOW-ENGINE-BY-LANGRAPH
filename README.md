@@ -30,4 +30,19 @@ The project includes a fully functional example workflow:
 ---
 
 ## 📁 Project Structure
+quantum-workflow-backend/
+│
+├── app/
+│ ├── main.py # API endpoints & graph registration
+│ ├── engine.py # Core workflow engine
+│ ├── models.py # Pydantic models (RunState, GraphDef, RunRequest, etc.)
+│ ├── tools.py # Helper utilities (optional)
+│ └── workflows.py # Node implementations (extract, analyze, detect, suggest)
+├── requirements.txt
+├── .gitignore
+├── README.md
+├── LICENSE
+└── .github/
+└── workflows/
+└── python-app.yml # CI pipeline
 
