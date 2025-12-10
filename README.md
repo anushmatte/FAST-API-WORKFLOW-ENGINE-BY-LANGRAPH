@@ -46,3 +46,24 @@ quantum-workflow-backend/
 └── workflows/
 └── python-app.yml # CI pipeline
 
+Create project folder & initialize git
+mkdir quantum-workflow-backend
+cd quantum-workflow-backend
+git init
+
+python -m venv venv
+# activate:
+# Windows (cmd)
+venv\Scripts\activate.bat
+# OR PowerShell
+.\venv\Scripts\Activate.ps1
+# OR macOS / Linux
+# source venv/bin/activate
+
+pip install --upgrade pip
+pip install -r requirements.txt
+python -m uvicorn app.main:app --reload --port 8000
+
+curl -X POST "http://127.0.0.1:8000/graph/create" -H "Content-Type: application/json" -d '{"graph_id":"v2","nodes":[{"name":"extract"},{"name":"suggest"}],"edges":{"extract":"suggest","suggest":null},"entry":"extract"}'
+
+Open: http://127.0.0.1:8000/docs
